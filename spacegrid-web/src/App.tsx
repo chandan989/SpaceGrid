@@ -9,6 +9,7 @@ import GridHUD from "./pages/GridHUD";
 import Market from "./pages/Market";
 import Portfolio from "./pages/Portfolio";
 import Staking from "./pages/Staking";
+import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/grid" element={<GridHUD />} />
             <Route path="/market" element={<Market />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/staking" element={<Staking />} />
           </Route>
           <Route path="*" element={<NotFound />} />
