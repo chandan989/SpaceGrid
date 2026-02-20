@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Lufga';
+  src: url('https://fonts.cdnfonts.com/css/lufga') format('woff2');
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 234 33% 14%;
+
+    --card: 210 20% 98%;
+    --card-foreground: 234 33% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 234 33% 14%;
+
+    --primary: 256 99% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 98%;
+    --secondary-foreground: 234 33% 14%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 256 99% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 256 99% 56%;
+
+    --radius: 0.75rem;
+
+    --violet: 256 99% 56%;
+    --violet-light: 256 99% 96%;
+    --warfare: 349 100% 50%;
+    --stealth: 147 100% 40%;
+    --quantum: 185 100% 42%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 234 33% 14%;
+    --sidebar-primary: 256 99% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 256 99% 96%;
+    --sidebar-accent-foreground: 256 99% 56%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 256 99% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Space Mono', monospace;
+    background-image: radial-gradient(hsl(220 13% 91%) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lufga', 'Inter', sans-serif;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl font-black leading-[1.1] tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold leading-tight tracking-tight;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-bold leading-snug;
+  }
+}
+
+@layer utilities {
+  .font-lufga {
+    font-family: 'Lufga', 'Inter', sans-serif;
+  }
+
+  .font-space-mono {
+    font-family: 'Space Mono', monospace;
+  }
+
+  .text-gradient {
+    background: linear-gradient(90deg, hsl(var(--foreground)), hsl(var(--violet)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .surface-panel {
+    @apply bg-card border border-border;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05), 0 0 25px rgba(92, 39, 254, 0.3);
+    border-color: hsl(var(--violet)) !important;
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 15px rgba(92, 39, 254, 0.5);
+  }
+
+  .text-violet {
+    color: hsl(var(--violet));
+  }
+
+  .bg-violet {
+    background-color: hsl(var(--violet));
+  }
+
+  .border-violet {
+    border-color: hsl(var(--violet));
+  }
+
+  .bg-violet-light {
+    background-color: hsl(var(--violet-light));
+  }
+
+  .text-warfare {
+    color: hsl(var(--warfare));
+  }
+
+  .text-stealth {
+    color: hsl(var(--stealth));
+  }
+
+  .text-quantum {
+    color: hsl(var(--quantum));
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-space-mono text-sm tracking-wider px-6 py-3 rounded-lg cursor-pointer transition-all duration-200;
+  }
+
+  .btn-primary:hover {
+    @apply opacity-90;
+    box-shadow: 0 0 20px rgba(92, 39, 254, 0.4);
+  }
+
+  .btn-outline {
+    @apply border border-border text-foreground font-space-mono text-sm tracking-wider px-6 py-3 rounded-lg cursor-pointer transition-all duration-200 bg-background;
+  }
+
+  .btn-outline:hover {
+    @apply border-violet text-violet;
+  }
+
+  .section-spacing {
+    @apply py-20 md:py-28;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--violet) / 0.3);
+  border-radius: 3px;
+}
+
+/* Orbit animations for hero SVG */
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+.orbit {
+  animation: orbit 60s linear infinite;
+  transform-origin: center;
+}
+.orbit-reverse {
+  animation: orbit 90s linear infinite reverse;
+  transform-origin: center;
+}
+.pulse-anim {
+  animation: pulse-scale 4s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(92, 39, 254, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(92, 39, 254, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(92, 39, 254, 0); }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
