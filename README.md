@@ -99,5 +99,3 @@ npm run dev
 ## ⚖️ LICENSE
 
 MIT License - The grid belongs to everyone and no one.
-
-```
