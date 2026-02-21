@@ -78,7 +78,7 @@ A monospaced typeface essential for the cryptographic and geographic nature of t
 * **Body Text:** `16px Regular` (rules of engagement, tactical descriptions)
 * **UI Labels:** `14px Regular` (staked amounts, form labels)
 * **Button Text:** `15px Bold` (CTAs, upgrade purchases)
-* **Data/Coordinates:** `13px Regular` (live GPS coords, PostGIS bounding boxes, ERC-721 hashes)
+* **Data/Coordinates:** `13px Regular` (live GPS coords, PostGIS bounding boxes, on-chain hashes)
 
 ### Global CSS Implementation
 
@@ -115,7 +115,7 @@ body, p, span, button, input {
 
 * Edge-to-edge dark map interface.
 * Live WebSocket coordinate stream in the corner.
-* "Close Loop" action button that triggers the `TerritoryRWA.sol` minting.
+* "Close Loop" action button that triggers the `TerritoryRWA.sol` registration.
 
 1. **Tactics Market (`/market`)**
 
@@ -124,7 +124,7 @@ body, p, span, button, input {
 
 1. **Territory Vault (`/portfolio`)**
 
-* Grid layout of all captured polygons minted on Creditcoin EVM.
+* Grid layout of all captured polygons registered on Creditcoin EVM.
 * Displays passive network dividends and staked CTC metrics.
 
 1. **Staking Pool (`/staking`)**
@@ -153,7 +153,7 @@ body, p, span, button, input {
 * Displays CTC cost clearly.
 * Triggers a smart contract call on `TacticsMarket.sol`.
 
-### 4. Polygon NFT Card (`TerritoryRWA`)
+### 4. Polygon Token Card (`TerritoryRWA`)
 
 * Wireframe rendering of the specific geographic polygon.
 * Hash, area size (calculated via PostGIS), and generation date strictly aligned in `Space Mono`.
@@ -173,7 +173,7 @@ body, p, span, button, input {
 * **Trail Emission:** Continuous drawing animation of the cyan stroke as GPS updates occur.
 * **Button Hover:** Instantaneous color inversion (Black text on Cyan background). Zero fade-in.
 * **Warfare Severance:** Screen glitch effect and harsh red flash when a rival crosses an unclosed loop.
-* **Territory Capture:** The moment a loop closes, the enclosed polygon rapidly fills with cyan and pulses once, signifying the smart contract call to mint the NFT.
+* **Territory Capture:** The moment a loop closes, the enclosed polygon rapidly fills with cyan and pulses once, signifying the smart contract call to register the territory.
 
 ---
 
@@ -228,7 +228,7 @@ body, p, span, button, input {
 * [x] Crimson (`#FF003C`) exclusively reserved for Interference Warfare events.
 * [x] Instant, linear transitions (no bouncy/soft animations).
 * [x] Data-first layout (always display CTC balances and staking metrics).
-* [x] Wireframe aesthetics for territory NFTs (`TerritoryRWA.sol`).
+* [x] Wireframe aesthetics for territories (`TerritoryRWA.sol`).
 
 ---
 
@@ -241,4 +241,4 @@ body, p, span, button, input {
 
 * Click the live GPS coordinate stream 3 times → Toggles raw PostGIS bounding box JSON output.
 * Attempt to cross your own unclosed trail backwards → "PARADOX DETECTED" warning flashes.
-* View an NFT minted on August 28, 2024 (Creditcoin EVM Mainnet launch) → Displays a "Genesis Block" golden border.
+* View a territory registered on August 28, 2024 (Creditcoin EVM Mainnet launch) → Displays a "Genesis Block" golden border.

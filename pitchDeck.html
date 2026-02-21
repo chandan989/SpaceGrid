@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Grid - Pitch Deck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-void: #0A0B0E;
+            --bg-surface: #13161A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #8A919E;
+            --accent-cyan: #00F0FF;
+            --accent-crimson: #FF003C;
+            --accent-purple: #B026FF;
+            --border-cyan: rgba(0, 240, 255, 0.15);
+            --glow-cyan: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-void);
+            color: var(--text-primary);
+            font-family: 'Space Mono', monospace;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 700;
+            text-shadow: var(--glow-cyan);
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        h3 {
+            font-size: 28px;
+            font-weight: 500;
+        }
+
+        .data-callout {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .text-body {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+            position: relative;
+        }
+
+        .panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-cyan);
+            padding: 3rem;
+            max-width: 1000px;
+            width: 100%;
+            position: relative;
+            /* Geometric, 0px border-radius */
+            border-radius: 0;
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--accent-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        ul {
+            list-style-type: square;
+            color: var(--accent-cyan);
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        li span {
+            color: var(--text-secondary);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .nav-indicator {
+            position: absolute;
+            bottom: 30px;
+            color: var(--text-secondary);
+            font-size: 12px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Glitch effect for interference slide */
+        .glitch-text {
+            color: var(--accent-crimson);
+            text-shadow: 0 0 10px var(--accent-crimson);
+        }
+
+        .citation {
+            font-size: 10px;
+            color: #444;
+            vertical-align: super;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="slide">
+        <div class="panel" style="text-align: center;">
+            <h1>🌌 SPACE GRID</h1>
+            <h3 style="margin-top: 20px;">Where Physical Movement Becomes Verifiable On-Chain Territory <span
+                    class="citation"></span></h3>
+            <p class="text-body" style="margin-top: 30px;">
+                A gamified decentralized physical infrastructure network (DePIN) and RWA protocol. <span
+                    class="citation"></span>
+            </p>
+        </div>
+        <div class="nav-indicator">[ SCROLL TO INITIALIZE ]</div>
+    </section>
+
+    <section class="slide">
+        <div class="panel">
+            <h2>🛸 THE PROTOCOL</h2>
+            <p class="text-body" style="margin-top: 20px;">
+                Space Grid shatters the barrier between digital ledgers and physical space. Using a mobile device's GPS,
+                operators emit a "Quantum Trail" to cryptographically capture geographic polygons. <span
+                    class="citation"></span>
+            </p>
+            <div class="grid-layout">
+                <div>
+                    <h3 style="color: var(--accent-cyan); font-size: 20px;">1. Trail Emission (DePIN)</h3>
+                    <p class="text-body">Physical movement generates continuous coordinates broadcast via WebSocket.
+                        <span class="citation"></span></p>
+                </div>
+                <div>
+                    <h3 style="color: var(--accent-cyan); font-size: 20px;">2. Territory Capture (RWA)</h3>
+                    <p class="text-body">Closing a loop calculates the enclosed area via PostGIS. <span
+                            class="citation"></span></p>
+                </div>
+                <div>
+                    <h3 class="glitch-text" style="font-size: 20px;">3. Interference Warfare</h3>
+                    <p class="text-body">Intersecting an active, unclosed trail of a rival collapses their loop
+                        potential. <span class="citation"></span></p>
+                </div>
+                <div>
+                    <h3 style="color: var(--accent-purple); font-size: 20px;">4. Grid Economics</h3>
+                    <p class="text-body">Stake CTC to enter high-value sectors and earn passive network dividends. <span
+                            class="citation"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="nav-indicator">[ SCROLL DOWN ]</div>
+    </section>
+
+    <section class="slide">
+        <div class="panel">
+            <h2>Built on Creditcoin EVM</h2>
+            <p class="text-body" style="margin-top: 20px;">
+                Deployed on the world's leading RWA infrastructure chain with over 3 million on-chain credit
+                transactions. <span class="citation"></span>
+            </p>
+            <ul>
+                <li><span><strong>RWA-Native Architecture:</strong> Binds on-chain assets to real-world provenance.
+                        <span class="citation"></span></span></li>
+                <li><span><strong>EVM Compatibility:</strong> Fully programmable Solidity-native chain (Mainnet live
+                        August 28, 2024). <span class="citation"></span></span></li>
+                <li><span><strong>Low-Cost, High-Throughput:</strong> NPoS consensus prevents gas spikes during
+                        high-frequency territory capture. <span class="citation"></span></span></li>
+            </ul>
+        </div>
+        <div class="nav-indicator">[ SCROLL DOWN ]</div>
+    </section>
+
+    <section class="slide">
+        <div class="panel">
+            <h2>🏗️ SYSTEM ARCHITECTURE</h2>
+            <div class="grid-layout">
+                <div style="border: 1px solid var(--border-cyan); padding: 1rem;">
+                    <h3 style="font-size: 18px; color: var(--accent-cyan);">Frontend / Interface</h3>
+                    <p class="text-body">React + Vite + TypeScript + Tailwind CSS <span class="citation"></span></p>
+                </div>
+                <div style="border: 1px solid var(--border-cyan); padding: 1rem;">
+                    <h3 style="font-size: 18px; color: var(--accent-cyan);">Core Logic / Realtime</h3>
+                    <p class="text-body">FastAPI (Python) + WebSocket <span class="citation"></span></p>
+                </div>
+                <div style="border: 1px solid var(--border-cyan); padding: 1rem;">
+                    <h3 style="font-size: 18px; color: var(--accent-cyan);">Spatial DB & Identity</h3>
+                    <p class="text-body">Supabase + PostgreSQL (PostGIS) <span class="citation"></span></p>
+                </div>
+                <div style="border: 1px solid var(--border-cyan); padding: 1rem;">
+                    <h3 style="font-size: 18px; color: var(--accent-cyan);">Asset / Consensus</h3>
+                    <p class="text-body">Creditcoin EVM — Solidity Smart Contracts <span class="citation"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="nav-indicator">[ SCROLL DOWN ]</div>
+    </section>
+
+    <section class="slide">
+        <div class="panel" style="text-align: center;">
+            <h2>👥 CORE PROTOCOL TEAM</h2>
+            <p class="text-body" style="margin-top: 10px; margin-bottom: 30px;">
+                The architects behind the grid. <span class="citation"></span>
+            </p>
+            <div class="grid-layout">
+                <div>
+                    <div class="data-callout" style="font-size: 32px;">Chandan Soni</div>
+                    <p class="text-body">Protocol Architecture & EVM Smart Contracts <span class="citation"></span></p>
+                </div>
+                <div>
+                    <div class="data-callout" style="font-size: 32px;">Nikhil Sharma</div>
+                    <p class="text-body">Client Interface & Real-time Synchronization <span class="citation"></span></p>
+                </div>
+            </div>
+            <p class="text-body" style="margin-top: 50px; font-weight: bold; color: var(--accent-cyan);">
+                "The grid belongs to everyone and no one." <span class="citation"></span>
+            </p>
+        </div>
+    </section>
+
+</body>
+
+</html>

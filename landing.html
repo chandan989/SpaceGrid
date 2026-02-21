@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lufga:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lufga:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         body {
             background-color: #FFFFFF;
@@ -17,24 +20,30 @@
             background-size: 20px 20px;
             background-position: 0 0, 10px 10px;
         }
+
         .font-lufga {
             font-family: 'Lufga', sans-serif;
         }
+
         .font-space-mono {
             font-family: 'Space Mono', monospace;
         }
+
         .electric-violet-text {
             color: #5C27FE;
         }
+
         .electric-violet-bg {
             background-color: #5C27FE;
         }
+
         .electric-violet-border {
             border-color: #5C27FE;
         }
+
         /* Custom glow effect */
         .glow-effect-soft {
-             box-shadow: 0 0 15px rgba(92, 39, 254, 0.5);
+            box-shadow: 0 0 15px rgba(92, 39, 254, 0.5);
         }
 
         /* Gradient text */
@@ -51,21 +60,39 @@
 
         /* SVG Animations */
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
+
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
         }
+
         .orbit {
             animation: rotate 60s linear infinite;
             transform-origin: center;
         }
+
         .orbit-reverse {
             animation: rotate 90s linear infinite reverse;
             transform-origin: center;
         }
+
         .pulse {
             animation: pulse 4s ease-in-out infinite;
         }
@@ -74,27 +101,46 @@
         .card-hover-effect {
             transition: all 0.3s ease-in-out;
         }
+
         .card-hover-effect:hover {
             transform: translateY(-8px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05), 0 0 25px rgba(92, 39, 254, 0.4);
-            border-color: #5C27FE !important; /* Use important to override existing border */
+            border-color: #5C27FE !important;
+            /* Use important to override existing border */
         }
+
         .table-row-hover-effect tbody tr {
             transition: background-color 0.3s ease;
         }
+
         .table-row-hover-effect tbody tr:hover {
-            background-color: #eef2ff; /* A light violet tone */
+            background-color: #eef2ff;
+            /* A light violet tone */
         }
+
         @keyframes pulse-slow {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(92, 39, 254, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(92, 39, 254, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(92, 39, 254, 0); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(92, 39, 254, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(92, 39, 254, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(92, 39, 254, 0);
+            }
         }
+
         .animate-pulse-slow {
             animation: pulse-slow 2s infinite;
         }
     </style>
 </head>
+
 <body class="overflow-x-hidden">
 
     <div class="relative z-10">
@@ -107,16 +153,24 @@
                     <span class="font-lufga text-2xl font-bold text-gray-900 tracking-wider">SPACE GRID</span>
                 </div>
                 <nav class="hidden md:flex items-center space-x-8 text-gray-700">
-                    <a href="#protocol" class="hover:electric-violet-text transition-colors duration-300">The Protocol</a>
+                    <a href="#protocol" class="hover:electric-violet-text transition-colors duration-300">The
+                        Protocol</a>
                     <a href="#mechanics" class="hover:electric-violet-text transition-colors duration-300">Mechanics</a>
-                    <a href="#technology" class="hover:electric-violet-text transition-colors duration-300">Technology</a>
-                    <a href="#deployment" class="hover:electric-violet-text transition-colors duration-300">Deployment</a>
-                    <a href="#economics" class="hover:electric-violet-text transition-colors duration-300">Grid Economics</a>
+                    <a href="#technology"
+                        class="hover:electric-violet-text transition-colors duration-300">Technology</a>
+                    <a href="#deployment"
+                        class="hover:electric-violet-text transition-colors duration-300">Deployment</a>
+                    <a href="#economics" class="hover:electric-violet-text transition-colors duration-300">Grid
+                        Economics</a>
                 </nav>
-                <a href="#" class="hidden md:block electric-violet-bg text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition-transform duration-300 transform hover:scale-105">Launch App</a>
+                <a href="#"
+                    class="hidden md:block electric-violet-bg text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition-transform duration-300 transform hover:scale-105">Launch
+                    App</a>
                 <button class="md:hidden text-gray-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </button>
             </div>
@@ -125,20 +179,27 @@
         <main>
             <!-- Hero Section -->
             <section class="h-screen w-full flex items-center relative overflow-hidden">
-                <div class="absolute inset-0 bg-grid-gray-200/[0.4] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] -z-10"></div>
+                <div
+                    class="absolute inset-0 bg-grid-gray-200/[0.4] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] -z-10">
+                </div>
                 <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-8 items-center">
                     <div class="text-center lg:text-left">
-                        <h1 class="font-lufga text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-black leading-tight">
-                            Physical Movement. <br/><span class="electric-violet-text">On-Chain Territory.</span>
+                        <h1
+                            class="font-lufga text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-black leading-tight">
+                            Physical Movement. <br /><span class="electric-violet-text">On-Chain Territory.</span>
                         </h1>
                         <p class="mt-6 max-w-xl mx-auto lg:mx-0 text-lg md:text-xl text-gray-600">
-                            Space Grid gamifies the mapping and verification of geospatial data. Translate your physical movement into cryptographic trails and claim real-world territories as persistent, tokenized assets on the Creditcoin EVM.
+                            Space Grid gamifies the mapping and verification of geospatial data. Translate your physical
+                            movement into cryptographic trails and claim real-world territories as persistent, tokenized
+                            assets on the Creditcoin EVM.
                         </p>
                         <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4">
-                            <a href="#protocol" class="w-full sm:w-auto electric-violet-bg text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 glow-effect-soft">
+                            <a href="#protocol"
+                                class="w-full sm:w-auto electric-violet-bg text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 glow-effect-soft">
                                 Discover How
                             </a>
-                            <a href="#" class="w-full sm:w-auto bg-transparent border-2 electric-violet-border electric-violet-text font-bold py-3 px-8 rounded-lg hover:bg-violet-50 transition-colors duration-300">
+                            <a href="#"
+                                class="w-full sm:w-auto bg-transparent border-2 electric-violet-border electric-violet-text font-bold py-3 px-8 rounded-lg hover:bg-violet-50 transition-colors duration-300">
                                 Launch App
                             </a>
                         </div>
@@ -148,10 +209,10 @@
                         <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-lg">
                             <defs>
                                 <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                                    <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+                                    <feGaussianBlur stdDeviation="10" result="coloredBlur" />
                                     <feMerge>
-                                        <feMergeNode in="coloredBlur"/>
-                                        <feMergeNode in="SourceGraphic"/>
+                                        <feMergeNode in="coloredBlur" />
+                                        <feMergeNode in="SourceGraphic" />
                                     </feMerge>
                                 </filter>
                                 <radialGradient id="planetGradient" cx="50%" cy="50%" r="50%" fx="25%" fy="25%">
@@ -163,32 +224,39 @@
                             <!-- Planet -->
                             <circle cx="250" cy="250" r="100" fill="url(#planetGradient)" />
                             <circle cx="250" cy="250" r="105" fill="#5C27FE" opacity="0.5" filter="url(#glow)" />
-                            <circle class="pulse" cx="250" cy="250" r="100" fill="transparent" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                            <circle class="pulse" cx="250" cy="250" r="100" fill="transparent"
+                                stroke="rgba(255,255,255,0.2)" stroke-width="1" />
 
 
                             <!-- Orbit 1 -->
-                            <ellipse cx="250" cy="250" rx="150" ry="150" fill="none" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="2 6"/>
+                            <ellipse cx="250" cy="250" rx="150" ry="150" fill="none" stroke="#E5E7EB" stroke-width="1"
+                                stroke-dasharray="2 6" />
                             <!-- Satellite 1 -->
                             <g>
-                                <circle cx="100" cy="250" r="6" fill="#1A1A2E"/>
-                                <animateMotion dur="10s" repeatCount="indefinite" path="M100,250 a150,150 0 1,0 300,0 a150,150 0 1,0 -300,0" />
+                                <circle cx="100" cy="250" r="6" fill="#1A1A2E" />
+                                <animateMotion dur="10s" repeatCount="indefinite"
+                                    path="M100,250 a150,150 0 1,0 300,0 a150,150 0 1,0 -300,0" />
                             </g>
 
                             <!-- Orbit 2 -->
-                             <ellipse cx="250" cy="250" rx="200" ry="80" fill="none" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="2 6"/>
-                             <!-- Satellite 2 -->
+                            <ellipse cx="250" cy="250" rx="200" ry="80" fill="none" stroke="#E5E7EB" stroke-width="1"
+                                stroke-dasharray="2 6" />
+                            <!-- Satellite 2 -->
                             <g>
                                 <rect x="-5" y="-5" width="10" height="10" fill="#5C27FE" transform="rotate(45)">
-                                    <animateMotion dur="15s" repeatCount="indefinite" path="M250,170 a200,80 0 1,0 0.001,0" />
+                                    <animateMotion dur="15s" repeatCount="indefinite"
+                                        path="M250,170 a200,80 0 1,0 0.001,0" />
                                 </rect>
                             </g>
 
                             <!-- Orbit 3 -->
-                            <ellipse cx="250" cy="250" rx="120" ry="220" fill="none" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="2 6"/>
+                            <ellipse cx="250" cy="250" rx="120" ry="220" fill="none" stroke="#E5E7EB" stroke-width="1"
+                                stroke-dasharray="2 6" />
                             <!-- Satellite 3 -->
                             <g>
                                 <circle r="5" fill="#1A1A2E">
-                                     <animateMotion dur="20s" repeatCount="indefinite" path="M250,30 a120,220 0 1,0 0.001,0" />
+                                    <animateMotion dur="20s" repeatCount="indefinite"
+                                        path="M250,30 a120,220 0 1,0 0.001,0" />
                                 </circle>
                             </g>
                         </svg>
@@ -200,25 +268,47 @@
             <section id="protocol" class="py-20">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-16">
-                        <h2 class="font-lufga text-3xl md:text-4xl font-bold">Shattering The Digital <span class="electric-violet-text">Barrier</span></h2>
-                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Space Grid breaks the barrier between digital ledgers and physical space. Using your mobile device's GPS, you can permanently tokenize captured territories as ERC-721 real-world assets.</p>
+                        <h2 class="font-lufga text-3xl md:text-4xl font-bold">Shattering The Digital <span
+                                class="electric-violet-text">Barrier</span></h2>
+                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Space Grid breaks the barrier between digital
+                            ledgers and physical space. Using your mobile device's GPS, you can permanently record
+                            captured territories as real-world assets.</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="card-bg p-8 rounded-xl text-center card-hover-effect">
-                            <svg class="w-16 h-16 mx-auto electric-violet-text" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.243 4.243L6.228 6.228" /></svg>
+                            <svg class="w-16 h-16 mx-auto electric-violet-text" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.243 4.243L6.228 6.228" />
+                            </svg>
                             <h3 class="font-lufga text-2xl font-bold mt-4">Trail Emission (DePIN)</h3>
-                            <p class="mt-2 text-gray-600">Physical movement generates continuous, signed geographic coordinates broadcast to the network in real time via zero-latency WebSocket connections.</p>
+                            <p class="mt-2 text-gray-600">Physical movement generates continuous, signed geographic
+                                coordinates broadcast to the network in real time via zero-latency WebSocket
+                                connections.</p>
                         </div>
-                        <div class="card-bg p-8 rounded-xl text-center card-hover-effect border-2 electric-violet-border glow-effect-soft">
-                             <svg class="w-16 h-16 mx-auto electric-violet-text" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <div
+                            class="card-bg p-8 rounded-xl text-center card-hover-effect border-2 electric-violet-border glow-effect-soft">
+                            <svg class="w-16 h-16 mx-auto electric-violet-text" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                             <h3 class="font-lufga text-2xl font-bold mt-4">Territory Capture (RWA)</h3>
-                            <p class="mt-2 text-gray-700">Returning to your own trail closes a loop. The backend calculates the area using PostGIS and securely mints the geometric polygon on the Creditcoin EVM.</p>
+                            <p class="mt-2 text-gray-700">Returning to your own trail closes a loop. The backend
+                                calculates the area using PostGIS and securely registers the geometric polygon on the
+                                Creditcoin EVM.</p>
                         </div>
                         <div class="card-bg p-8 rounded-xl text-center card-hover-effect">
-                           <svg class="w-16 h-16 mx-auto electric-violet-text" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                            <svg class="w-16 h-16 mx-auto electric-violet-text" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                            </svg>
                             <h3 class="font-lufga text-2xl font-bold mt-4">Interference Warfare</h3>
-                            <p class="mt-2 text-gray-600">Intersect an active, unclosed trail of a rival operator to sever their connection, collapsing their loop potential and asserting local dominance.</p>
+                            <p class="mt-2 text-gray-600">Intersect an active, unclosed trail of a rival operator to
+                                sever their connection, collapsing their loop potential and asserting local dominance.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -228,8 +318,10 @@
             <section id="mechanics" class="py-20">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-16">
-                        <h2 class="font-lufga text-3xl md:text-4xl font-bold">Core Mechanics of <span class="electric-violet-text">The Grid</span></h2>
-                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">A continuous loop from real-time physical movement to permanent on-chain asset verification.</p>
+                        <h2 class="font-lufga text-3xl md:text-4xl font-bold">Core Mechanics of <span
+                                class="electric-violet-text">The Grid</span></h2>
+                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">A continuous loop from real-time physical
+                            movement to permanent on-chain asset verification.</p>
                     </div>
 
                     <div class="relative">
@@ -237,29 +329,36 @@
                         <div class="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-gray-300"></div>
 
                         <div class="grid lg:grid-cols-3 gap-12 relative">
-                             <!-- Card 1 -->
+                            <!-- Card 1 -->
                             <div class="card-bg p-8 rounded-xl text-center card-hover-effect">
-                                <div class="relative w-24 h-24 mx-auto flex items-center justify-center rounded-full bg-white border-4 border-gray-200 mb-4">
+                                <div
+                                    class="relative w-24 h-24 mx-auto flex items-center justify-center rounded-full bg-white border-4 border-gray-200 mb-4">
                                     <span class="font-lufga text-4xl font-bold electric-violet-text">1</span>
                                 </div>
                                 <h3 class="font-lufga text-xl font-bold">LAYER ONE: The Quantum Trail</h3>
-                                <p class="mt-2 text-gray-600 text-sm">Activate your device to emit a Quantum Trail. Your movements are continuously tracked and broadcast with strict geospatial fidelity.</p>
+                                <p class="mt-2 text-gray-600 text-sm">Activate your device to emit a Quantum Trail. Your
+                                    movements are continuously tracked and broadcast with strict geospatial fidelity.
+                                </p>
                             </div>
-                             <!-- Card 2 -->
-                             <div class="card-bg p-8 rounded-xl text-center card-hover-effect">
-                                <div class="relative w-24 h-24 mx-auto flex items-center justify-center rounded-full bg-white border-4 border-gray-200 mb-4">
-                                     <span class="font-lufga text-4xl font-bold electric-violet-text">2</span>
+                            <!-- Card 2 -->
+                            <div class="card-bg p-8 rounded-xl text-center card-hover-effect">
+                                <div
+                                    class="relative w-24 h-24 mx-auto flex items-center justify-center rounded-full bg-white border-4 border-gray-200 mb-4">
+                                    <span class="font-lufga text-4xl font-bold electric-violet-text">2</span>
                                 </div>
                                 <h3 class="font-lufga text-xl font-bold">LAYER TWO: Spatial Calculation</h3>
-                                <p class="mt-2 text-gray-600 text-sm">PostGIS algorithms verify the enclosed geometric area of your path, preventing overlaps and quantifying the physical footprint.</p>
+                                <p class="mt-2 text-gray-600 text-sm">PostGIS algorithms verify the enclosed geometric
+                                    area of your path, preventing overlaps and quantifying the physical footprint.</p>
                             </div>
-                             <!-- Card 3 -->
-                             <div class="card-bg p-8 rounded-xl text-center card-hover-effect">
-                                <div class="relative w-24 h-24 mx-auto flex items-center justify-center rounded-full bg-white border-4 border-gray-200 mb-4">
-                                     <span class="font-lufga text-4xl font-bold electric-violet-text">3</span>
+                            <!-- Card 3 -->
+                            <div class="card-bg p-8 rounded-xl text-center card-hover-effect">
+                                <div
+                                    class="relative w-24 h-24 mx-auto flex items-center justify-center rounded-full bg-white border-4 border-gray-200 mb-4">
+                                    <span class="font-lufga text-4xl font-bold electric-violet-text">3</span>
                                 </div>
-                                <h3 class="font-lufga text-xl font-bold">LAYER THREE: Asset Minting</h3>
-                                <p class="mt-2 text-gray-600 text-sm">The territory is tokenized via TerritoryRWA.sol as an ERC-721 asset on the Creditcoin EVM, cementing your undeniable claim.</p>
+                                <h3 class="font-lufga text-xl font-bold">LAYER THREE: Asset Registration</h3>
+                                <p class="mt-2 text-gray-600 text-sm">The territory is registered via TerritoryRWA.sol
+                                    as an asset on the Creditcoin EVM, cementing your undeniable claim.</p>
                             </div>
                         </div>
                     </div>
@@ -270,8 +369,10 @@
             <section id="technology" class="py-20">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-12">
-                        <h2 class="font-lufga text-3xl md:text-4xl font-bold">System <span class="electric-violet-text">Architecture</span></h2>
-                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Built on a hybridized Web2/Web3 stack, ensuring zero-latency geospatial tracking while maintaining strict on-chain validation.</p>
+                        <h2 class="font-lufga text-3xl md:text-4xl font-bold">System <span
+                                class="electric-violet-text">Architecture</span></h2>
+                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Built on a hybridized Web2/Web3 stack, ensuring
+                            zero-latency geospatial tracking while maintaining strict on-chain validation.</p>
                     </div>
                     <div class="max-w-4xl mx-auto card-bg rounded-xl overflow-hidden shadow-lg">
                         <table class="w-full text-left font-space-mono table-row-hover-effect">
@@ -310,7 +411,7 @@
                                     <td class="p-4 font-bold">Token Economics</td>
                                     <td class="p-4">CTC (staking, in-game tactics, network dividends)</td>
                                 </tr>
-                                
+
                                 <tr class="border-b border-gray-200">
                                     <td class="p-4 font-bold">Consensus Layer</td>
                                     <td class="p-4">Creditcoin NPoS with USC Support</td>
@@ -325,8 +426,10 @@
             <section id="deployment" class="py-20">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-16">
-                        <h2 class="font-lufga text-3xl md:text-4xl font-bold">Deployment <span class="electric-violet-text">Sequence</span></h2>
-                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">The grid is coming online. From local spatial tests to complete decentralized mainnet deployment.</p>
+                        <h2 class="font-lufga text-3xl md:text-4xl font-bold">Deployment <span
+                                class="electric-violet-text">Sequence</span></h2>
+                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">The grid is coming online. From local spatial
+                            tests to complete decentralized mainnet deployment.</p>
                     </div>
                     <div class="relative max-w-2xl mx-auto">
                         <!-- Vertical line -->
@@ -334,42 +437,59 @@
                         <div class="space-y-12 relative">
                             <!-- Phase 0 -->
                             <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full electric-violet-bg flex items-center justify-center text-white font-bold z-10 animate-pulse-slow">0</div>
+                                <div
+                                    class="w-10 h-10 rounded-full electric-violet-bg flex items-center justify-center text-white font-bold z-10 animate-pulse-slow">
+                                    0</div>
                                 <div class="pl-8">
                                     <div class="font-lufga text-xl font-bold">Phase 0: EVM Contracts</div>
-                                    <p class="text-gray-600">Deploying GridEntry, TerritoryRWA, and TacticsMarket to Creditcoin Testnet (tCTC).</p>
+                                    <p class="text-gray-600">Deploying GridEntry, TerritoryRWA, and TacticsMarket to
+                                        Creditcoin Testnet (tCTC).</p>
                                 </div>
                             </div>
                             <!-- Phase 1 -->
                             <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full electric-violet-bg flex items-center justify-center text-white font-bold z-10 animate-pulse-slow">1</div>
+                                <div
+                                    class="w-10 h-10 rounded-full electric-violet-bg flex items-center justify-center text-white font-bold z-10 animate-pulse-slow">
+                                    1</div>
                                 <div class="pl-8">
                                     <div class="font-lufga text-xl font-bold">Phase 1: Spatial Backend</div>
-                                    <p class="text-gray-600">Configuring FastAPI logic and initializing PostGIS schema for area validation.</p>
+                                    <p class="text-gray-600">Configuring FastAPI logic and initializing PostGIS schema
+                                        for area validation.</p>
                                 </div>
                             </div>
                             <!-- Phase 2 -->
                             <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full electric-violet-bg flex items-center justify-center text-white font-bold z-10 animate-pulse-slow">2</div>
+                                <div
+                                    class="w-10 h-10 rounded-full electric-violet-bg flex items-center justify-center text-white font-bold z-10 animate-pulse-slow">
+                                    2</div>
                                 <div class="pl-8">
                                     <div class="font-lufga text-xl font-bold">Phase 2: Interface Layer</div>
-                                    <p class="text-gray-600">Launching the React+Vite frontend for real-time WebSocket communication and operator wallet integration.</p>
+                                    <p class="text-gray-600">Launching the React+Vite frontend for real-time WebSocket
+                                        communication and operator wallet integration.</p>
                                 </div>
                             </div>
-                             <!-- Phase 3 -->
+                            <!-- Phase 3 -->
                             <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold z-10">3</div>
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold z-10">
+                                    3</div>
                                 <div class="pl-8">
-                                    <div class="font-lufga text-xl font-bold text-gray-500">Phase 3: Tactical Markets</div>
-                                    <p class="text-gray-500">Enabling in-game tactical upgrades like Shields, Stealth, and Disruption pulses via CTC.</p>
+                                    <div class="font-lufga text-xl font-bold text-gray-500">Phase 3: Tactical Markets
+                                    </div>
+                                    <p class="text-gray-500">Enabling in-game tactical upgrades like Shields, Stealth,
+                                        and Disruption pulses via CTC.</p>
                                 </div>
                             </div>
-                             <!-- Phase 4 -->
+                            <!-- Phase 4 -->
                             <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold z-10">4</div>
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold z-10">
+                                    4</div>
                                 <div class="pl-8">
-                                    <div class="font-lufga text-xl font-bold text-gray-500">Phase 4: Mainnet Launch</div>
-                                    <p class="text-gray-500">Migrating to Creditcoin Mainnet for live, tokenized territory capture using real CTC economics.</p>
+                                    <div class="font-lufga text-xl font-bold text-gray-500">Phase 4: Mainnet Launch
+                                    </div>
+                                    <p class="text-gray-500">Migrating to Creditcoin Mainnet for live, tokenized
+                                        territory capture using real CTC economics.</p>
                                 </div>
                             </div>
                         </div>
@@ -381,8 +501,10 @@
             <section id="economics" class="py-20">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-16">
-                        <h2 class="font-lufga text-3xl md:text-4xl font-bold">Grid <span class="electric-violet-text">Economics</span></h2>
-                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Operators stake CTC to enter high-value sectors, while captured territories yield passive network dividends.</p>
+                        <h2 class="font-lufga text-3xl md:text-4xl font-bold">Grid <span
+                                class="electric-violet-text">Economics</span></h2>
+                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Operators stake CTC to enter high-value sectors,
+                            while captured territories yield passive network dividends.</p>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="card-bg p-8 rounded-xl card-hover-effect">
@@ -400,7 +522,7 @@
                                 <li>Locked stakes during active trails</li>
                                 <li>Tactical upgrade consumption</li>
                                 <li>Slashed stakes from interference</li>
-                                <li>Territory capture minting fees</li>
+                                <li>Territory capture registration fees</li>
                             </ul>
                         </div>
                         <div class="card-bg p-8 rounded-xl card-hover-effect">
@@ -419,11 +541,15 @@
             <!-- CTA Section -->
             <section class="py-20">
                 <div class="container mx-auto px-6">
-                    <div class="card-bg rounded-xl p-10 md:p-16 text-center border-2 electric-violet-border glow-effect-soft">
+                    <div
+                        class="card-bg rounded-xl p-10 md:p-16 text-center border-2 electric-violet-border glow-effect-soft">
                         <h2 class="font-lufga text-3xl md:text-4xl font-bold">Enter The Grid</h2>
-                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">From the physical streets to the blockchain ledger. The map is blank and the territories are waiting to be claimed. Start your quantum trail today.</p>
+                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">From the physical streets to the blockchain
+                            ledger. The map is blank and the territories are waiting to be claimed. Start your quantum
+                            trail today.</p>
                         <div class="mt-8">
-                             <a href="#" class="electric-violet-bg text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 glow-effect-soft">
+                            <a href="#"
+                                class="electric-violet-bg text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 glow-effect-soft">
                                 Initialize Space Grid
                             </a>
                         </div>
@@ -436,10 +562,17 @@
         <footer class="border-t border-gray-200 mt-20">
             <div class="container mx-auto px-6 py-8 text-center text-gray-500">
                 <div class="flex justify-center items-center space-x-3 mb-4">
-                    <svg width="24" height="24" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-50">
-                        <path d="M183.109 13.1119C171.693 4.90407 157.973 0 143.511 0C108.832 0 81.6883 27.1437 81.6883 61.8223C81.6883 76.284 86.5923 89.9882 94.8159 101.404L25.3333 133.001L101.404 230.667L154.918 154.596C166.334 162.8 180.038 167.704 194.5 167.704C229.179 167.704 256.323 140.56 256.323 105.882C256.323 91.4199 251.419 77.7157 243.211 66.2996L183.109 13.1119ZM143.511 25.4328C152.179 25.4328 160.387 27.9941 167.247 32.5828L108.665 91.1643C104.076 84.3043 101.404 76.1119 101.404 67.2472C101.404 43.8398 120.317 25.4328 143.511 25.4328ZM194.5 142.271C185.832 142.271 177.624 139.71 170.764 135.121L229.346 76.5391C233.934 83.3991 236.607 91.5915 236.607 100.456C236.607 123.864 217.694 142.271 194.5 142.271Z" fill="#5C27FE"/>
-                         <path d="M127.818 101.404C148.868 101.404 165.988 84.2843 165.988 63.2345C165.988 42.1847 148.868 25.0648 127.818 25.0648C106.768 25.0648 89.6484 42.1847 89.6484 63.2345C89.6484 84.2843 106.768 101.404 127.818 101.404Z" fill="#1A1A2E"/>
-                         <path d="M118.802 54.2181L123.39 45.1973L127.979 54.2181L137 58.8066L127.979 63.3951L123.39 72.4159L118.802 63.3951L109.781 58.8066L118.802 54.2181Z" fill="white"/>
+                    <svg width="24" height="24" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="opacity-50">
+                        <path
+                            d="M183.109 13.1119C171.693 4.90407 157.973 0 143.511 0C108.832 0 81.6883 27.1437 81.6883 61.8223C81.6883 76.284 86.5923 89.9882 94.8159 101.404L25.3333 133.001L101.404 230.667L154.918 154.596C166.334 162.8 180.038 167.704 194.5 167.704C229.179 167.704 256.323 140.56 256.323 105.882C256.323 91.4199 251.419 77.7157 243.211 66.2996L183.109 13.1119ZM143.511 25.4328C152.179 25.4328 160.387 27.9941 167.247 32.5828L108.665 91.1643C104.076 84.3043 101.404 76.1119 101.404 67.2472C101.404 43.8398 120.317 25.4328 143.511 25.4328ZM194.5 142.271C185.832 142.271 177.624 139.71 170.764 135.121L229.346 76.5391C233.934 83.3991 236.607 91.5915 236.607 100.456C236.607 123.864 217.694 142.271 194.5 142.271Z"
+                            fill="#5C27FE" />
+                        <path
+                            d="M127.818 101.404C148.868 101.404 165.988 84.2843 165.988 63.2345C165.988 42.1847 148.868 25.0648 127.818 25.0648C106.768 25.0648 89.6484 42.1847 89.6484 63.2345C89.6484 84.2843 106.768 101.404 127.818 101.404Z"
+                            fill="#1A1A2E" />
+                        <path
+                            d="M118.802 54.2181L123.39 45.1973L127.979 54.2181L137 58.8066L127.979 63.3951L123.39 72.4159L118.802 63.3951L109.781 58.8066L118.802 54.2181Z"
+                            fill="white" />
                     </svg>
                     <span class="font-lufga font-bold text-lg">SPACE GRID</span>
                 </div>
@@ -450,7 +583,7 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Simple scroll animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -486,4 +619,5 @@
         });
     </script>
 </body>
+
 </html>

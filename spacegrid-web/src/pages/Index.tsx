@@ -120,8 +120,8 @@ const Index = () => {
             <h2 className="font-lufga mb-4">Shattering The Digital Barrier</h2>
             <p className="text-muted-foreground text-sm font-space-mono leading-relaxed">
               Space Grid breaks the barrier between digital ledgers and physical space.
-              Using your mobile device's GPS, you can permanently tokenize captured territories
-              as ERC-721 real-world assets.
+              Using your mobile device's GPS, you can permanently record captured territories
+              as real-world assets.
             </p>
           </motion.div>
 
@@ -135,7 +135,7 @@ const Index = () => {
               {
                 icon: <MapTrifold size={28} weight="duotone" />,
                 title: "Territory Capture (RWA)",
-                desc: "Returning to your own trail closes a loop. The backend calculates the area using PostGIS and securely mints the geometric polygon on the Creditcoin EVM.",
+                desc: "Returning to your own trail closes a loop. The backend calculates the area using PostGIS and securely registers the geometric polygon on the Creditcoin EVM.",
               },
               {
                 icon: <Sword size={28} weight="duotone" />,
@@ -179,7 +179,7 @@ const Index = () => {
                 {/* Labels */}
                 <text x="95" y="305" fill="hsl(256 99% 56%)" fontSize="10" fontFamily="Space Mono">EMIT</text>
                 <text x="178" y="210" fill="hsl(256 99% 56% / 0.6)" fontSize="10" fontFamily="Space Mono">CALC</text>
-                <text x="265" y="110" fill="hsl(256 99% 56%)" fontSize="10" fontFamily="Space Mono">MINT</text>
+                <text x="265" y="110" fill="hsl(256 99% 56%)" fontSize="10" fontFamily="Space Mono">REGISTER</text>
               </svg>
             </div>
 
@@ -198,8 +198,8 @@ const Index = () => {
                 },
                 {
                   num: "3",
-                  title: "LAYER THREE: Asset Minting",
-                  desc: "The territory is tokenized via TerritoryRWA.sol as an ERC-721 asset on the Creditcoin EVM, cementing your undeniable claim.",
+                  title: "LAYER THREE: Asset Registration",
+                  desc: "The territory is registered via TerritoryRWA.sol as an asset on the Creditcoin EVM, cementing your undeniable claim.",
                 },
               ].map((step) => (
                 <div key={step.num} className="flex gap-4">
@@ -316,7 +316,7 @@ const Index = () => {
               },
               {
                 title: "Economy Sinks",
-                items: ["Locked stakes during active trails", "Tactical upgrade consumption", "Slashed stakes from interference", "Territory capture minting fees"],
+                items: ["Locked stakes during active trails", "Tactical upgrade consumption", "Slashed stakes from interference", "Territory capture registration fees"],
               },
               {
                 title: "Protocol Rewards",

@@ -29,7 +29,7 @@ const TerritoryCard = ({ id, hash, area, date, vertices, dividends }: TerritoryC
       <div className="flex justify-between"><span className="text-muted-foreground">HASH</span><span className="text-primary truncate ml-2 max-w-[140px]">{hash}</span></div>
       <div className="flex justify-between"><span className="text-muted-foreground">AREA</span><span>{area} km²</span></div>
       <div className="flex justify-between"><span className="text-muted-foreground">VERTICES</span><span>{vertices}</span></div>
-      <div className="flex justify-between"><span className="text-muted-foreground">MINTED</span><span>{date}</span></div>
+      <div className="flex justify-between"><span className="text-muted-foreground">REGISTERED</span><span>{date}</span></div>
       <div className="flex justify-between border-t border-border pt-1 mt-1">
         <span className="text-muted-foreground">DIVIDENDS</span>
         <span className="text-primary font-bold">{dividends} CTC/epoch</span>
@@ -55,7 +55,7 @@ const Portfolio = () => {
     <div className="min-h-screen bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] [background-position:0_0,10px_10px] section-spacing">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-10">
-          <p className="font-space-mono text-xs text-muted-foreground tracking-widest mb-2">RWA INVENTORY // POLYGON NFT STORAGE</p>
+          <p className="font-space-mono text-xs text-muted-foreground tracking-widest mb-2">RWA INVENTORY // POLYGON TOKEN STORAGE</p>
           <h2 className="font-lufga">Territory Vault</h2>
         </div>
 

@@ -12,7 +12,7 @@ Space Grid is a decentralized physical infrastructure network (DePIN) and locati
 
 Space Grid shatters the barrier between digital ledgers and physical space. Using a mobile device's GPS, operators emit a "Quantum Trail." By physically moving to close a loop, operators cryptographically capture that geographic polygon.
 
-Rather than resetting after a session, Space Grid leverages Creditcoin's EVM to permanently tokenize captured territories as ERC-721 assets — turning localized spatial control into tradable, verifiable RWAs stored directly on-chain.
+Rather than resetting after a session, Space Grid leverages Creditcoin's EVM to permanently record captured territories — turning localized spatial control into verifiable RWAs stored directly on-chain.
 
 ### 🔹 Core Mechanics
 
@@ -20,7 +20,7 @@ Rather than resetting after a session, Space Grid leverages Creditcoin's EVM to 
 Physical movement generates continuous, signed geographic coordinates broadcast to the network in real time via WebSocket.
 
 **2. Territory Capture (RWA)**
-Returning to your own trail closes a loop. The backend calculates the enclosed geometric area using PostGIS and triggers a smart contract call to mint the polygon as an NFT on Creditcoin EVM.
+Returning to your own trail closes a loop. The backend calculates the enclosed geometric area using PostGIS and triggers a smart contract call to register the polygon on Creditcoin EVM.
 
 **3. Interference Warfare**
 Intersecting an active, unclosed trail of a rival operator severs their connection, collapsing their loop potential and rewarding aggressive territorial play.
@@ -50,7 +50,7 @@ Creditcoin is a Layer 1 blockchain designed from the ground up for real-world as
 
 Key reasons Space Grid builds on Creditcoin:
 
-- **RWA-native architecture** — Creditcoin's entire design philosophy centers on binding on-chain assets to real-world provenance, making it the ideal settlement layer for geospatially-anchored NFTs.
+- **RWA-native architecture** — Creditcoin's entire design philosophy centers on binding on-chain assets to real-world provenance, making it the ideal settlement layer for geospatially-anchored data.
 - **EVM compatibility** — Full Solidity/Hardhat/Foundry toolchain support means Space Grid contracts are portable, auditable, and interoperable with the broader EVM ecosystem.
 - **Universal Smart Contract (USC) layer** — Creditcoin's in-development USC protocol enables cross-chain smart contract coordination without bridges, a future upgrade path for Space Grid's multi-chain expansion.
 - **Low-cost, high-throughput transactions** — Creditcoin's NPoS consensus and efficient block times make high-frequency territory capture and staking economics viable without gas spikes.
@@ -149,12 +149,15 @@ npm run dev
 All contracts are written in Solidity and deployed to the Creditcoin EVM using Hardhat.
 
 ### `GridEntry.sol`
+
 Manages CTC staking pools for active grid sessions. Handles entry fees, stake locking during active trails, and protocol reward distribution to territory holders.
 
 ### `TerritoryRWA.sol`
-ERC-721 implementation. Stores encoded PostGIS bounding box coordinates as on-chain metadata, providing cryptographic proof of geographic ownership. Each minted token represents a unique, non-overlapping polygon on the physical Earth.
+
+Stores encoded PostGIS bounding box coordinates as on-chain metadata, providing cryptographic proof of geographic ownership. Each registered territory represents a unique, non-overlapping polygon on the physical Earth.
 
 ### `TacticsMarket.sol`
+
 Handles CTC micro-transactions for in-game tactical upgrades — purchasing temporary Shields (block interference), Stealth (hide your trail from rivals), and Disruption pulses (collapse nearby unclosed loops).
 
 ---

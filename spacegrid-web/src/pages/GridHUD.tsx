@@ -142,7 +142,7 @@ const GridHUD = () => {
       >
         <button className="btn-primary glow-violet px-10 py-4 text-sm tracking-wider flex items-center gap-3">
           <Lightning size={16} weight="duotone" />
-          CLOSE LOOP — MINT TERRITORY RWA
+          CLOSE LOOP — REGISTER TERRITORY RWA
         </button>
       </motion.div>
 
