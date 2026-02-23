@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Broadcast, MapTrifold, Sword, Lightning } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
+import { useAccount, useConnect } from "wagmi";
+import { injected } from "wagmi/connectors";
 
 
 const fadeIn = {
@@ -10,6 +12,9 @@ const fadeIn = {
 };
 
 const Index = () => {
+  const { isConnected } = useAccount();
+  const { connect } = useConnect();
+
   return (
     <div className="min-h-screen bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] [background-position:0_0,10px_10px]">
       {/* ===== HERO ===== */}
@@ -31,16 +36,18 @@ const Index = () => {
               >
                 Discover How <ArrowRight size={16} weight="bold" />
               </Link>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="w-full sm:w-auto bg-transparent border-2 border-[#5C27FE] text-[#5C27FE] font-bold py-3 px-8 rounded-lg hover:bg-violet-50 transition-colors duration-300 font-space-mono text-center flex items-center justify-center gap-2"
-              >
-                Connect Wallet <Lightning size={16} weight="duotone" />
-              </a>
+              {!isConnected && (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    connect({ connector: injected() });
+                  }}
+                  className="w-full sm:w-auto bg-transparent border-2 border-[#5C27FE] text-[#5C27FE] font-bold py-3 px-8 rounded-lg hover:bg-violet-50 transition-colors duration-300 font-space-mono text-center flex items-center justify-center gap-2"
+                >
+                  Connect Wallet <Lightning size={16} weight="duotone" />
+                </button>
+              )}
             </div>
           </motion.div>
 
@@ -347,17 +354,18 @@ const Index = () => {
             From the physical streets to the blockchain ledger. The map is blank and the
             territories are waiting to be claimed. Start your quantum trail today.
           </p>
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            <button className="btn-primary glow-violet text-sm px-8 py-4 inline-flex items-center gap-2">
+          {!isConnected && (
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                connect({ connector: injected() });
+              }}
+              className="btn-primary glow-violet text-sm px-8 py-4 inline-flex items-center gap-2"
+            >
               Connect Wallet <ArrowRight size={16} weight="bold" />
             </button>
-          </a>
+          )}
         </div>
       </section>
     </div>

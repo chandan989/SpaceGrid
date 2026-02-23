@@ -1,6 +1,8 @@
 import { Link, useLocation, Outlet, Navigate, useNavigate } from "react-router-dom";
 import { Globe, Crosshair, ShoppingCart, Vault, CurrencyEth, Wallet, User, SignOut } from "@phosphor-icons/react";
 import { useState, useEffect } from "react";
+import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { injected } from "wagmi/connectors";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,53 +30,14 @@ const appNavItems = [
 const Layout = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [connected, setConnected] = useState(false);
+  const { isConnected, address } = useAccount();
+  const { connect } = useConnect();
+  const { disconnect } = useDisconnect();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [walletAddress, setWalletAddress] = useState("");
 
-  const connectWallet = async () => {
-    if (typeof window !== "undefined" && (window as any).ethereum) {
-      try {
-        const ethereum = (window as any).ethereum;
-        const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-        if (accounts.length > 0) {
-          setWalletAddress(accounts[0]);
-          setConnected(true);
-
-          const creditcoinChainId = "0x18e8e"; // 102030
-          try {
-            await ethereum.request({
-              method: "wallet_switchEthereumChain",
-              params: [{ chainId: creditcoinChainId }],
-            });
-          } catch (switchError: any) {
-            if (switchError.code === 4902) {
-              await ethereum.request({
-                method: "wallet_addEthereumChain",
-                params: [
-                  {
-                    chainId: creditcoinChainId,
-                    chainName: "Creditcoin",
-                    rpcUrls: ["https://mainnet3.creditcoin.network"],
-                    nativeCurrency: {
-                      name: "CTC",
-                      symbol: "CTC",
-                      decimals: 18,
-                    },
-                    blockExplorerUrls: ["https://creditcoin.blockscout.com/"],
-                  },
-                ],
-              });
-            }
-          }
-        }
-      } catch (error) {
-        console.error("Error connecting to MetaMask", error);
-      }
-    } else {
-      alert("Please install MetaMask to use this feature.");
-    }
+  const connectWallet = () => {
+    connect({ connector: injected() });
   };
 
   useEffect(() => {
@@ -117,7 +80,7 @@ const Layout = () => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
-            {(connected ? appNavItems : landingNavItems).map((item) => {
+            {(isConnected ? appNavItems : landingNavItems).map((item) => {
               const isActive = location.pathname === item.path;
               const isAnchor = item.path.includes("#");
 
@@ -149,12 +112,12 @@ const Layout = () => {
           </div>
 
           {/* Wallet */}
-          {connected ? (
+          {isConnected ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="hidden md:flex items-center gap-2 text-sm font-space-mono rounded-lg px-4 py-2 transition-all duration-200 bg-violet-light text-primary border border-primary/20">
                   <Wallet size={16} weight="duotone" />
-                  {walletAddress ? `${walletAddress.substring(0, 6)}...${walletAddress.substring(walletAddress.length - 4)}` : "Connected"}
+                  {address ? `${address.substring(0, 6)}...${address.substring(address.length - 4)}` : "Connected"}
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56 font-space-mono">
@@ -165,7 +128,7 @@ const Layout = () => {
                   <span>Profile</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="cursor-pointer text-destructive focus:text-destructive" onClick={() => { setConnected(false); setWalletAddress(""); }}>
+                <DropdownMenuItem className="cursor-pointer text-destructive focus:text-destructive" onClick={() => disconnect()}>
                   <SignOut className="mr-2 h-4 w-4" />
                   <span>Disconnect</span>
                 </DropdownMenuItem>
@@ -197,7 +160,7 @@ const Layout = () => {
         {/* Mobile menu */}
         {menuOpen && (
           <div className="md:hidden border-t border-border bg-background px-6 py-4 space-y-2">
-            {(connected ? appNavItems : landingNavItems).map((item) => {
+            {(isConnected ? appNavItems : landingNavItems).map((item) => {
               const isAnchor = item.path.includes("#");
               if (isAnchor) {
                 return (
@@ -223,7 +186,7 @@ const Layout = () => {
                 </Link>
               );
             })}
-            {connected ? (
+            {isConnected ? (
               <div className="pt-2 pb-1 border-t border-border mt-4">
                 <p className="px-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Account</p>
                 <Link
@@ -236,8 +199,7 @@ const Layout = () => {
                 </Link>
                 <button
                   onClick={() => {
-                    setConnected(false);
-                    setWalletAddress("");
+                    disconnect();
                     setMenuOpen(false);
                   }}
                   className="flex w-full items-center gap-3 py-2 px-2 text-sm font-space-mono text-destructive hover:bg-destructive/10 rounded-md mt-1"
@@ -262,7 +224,7 @@ const Layout = () => {
       </nav>
 
       <main className="flex-1 pt-20">
-        {!connected && location.pathname !== "/" ? (
+        {!isConnected && location.pathname !== "/" ? (
           <Navigate to="/" replace />
         ) : (
           <Outlet />
