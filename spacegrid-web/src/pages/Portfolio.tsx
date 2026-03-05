@@ -23,7 +23,7 @@ const TerritoryCard = ({ id, hash, area, date, vertices, dividends }: TerritoryC
       <svg viewBox="0 0 100 100" className="w-full h-full opacity-30 group-hover:opacity-60 transition-all">
         <polygon points={generatePolygonPoints(vertices)} fill="hsl(256 99% 56% / 0.08)" stroke="hsl(256 99% 56% / 0.5)" strokeWidth="0.8" />
       </svg>
-      <span className="absolute top-2 left-2 text-[9px] text-muted-foreground font-space-mono bg-background/80 px-1.5 py-0.5 rounded">RWA #{id}</span>
+      <span className="absolute top-2 left-2 text-[9px] text-muted-foreground font-space-mono bg-background/80 px-1.5 py-0.5 rounded">TERRITORY #{id}</span>
     </div>
     <div className="space-y-1 font-space-mono text-[11px]">
       <div className="flex justify-between"><span className="text-muted-foreground">HASH</span><span className="text-primary truncate ml-2 max-w-[140px]">{hash}</span></div>
@@ -55,7 +55,7 @@ const Portfolio = () => {
     <div className="min-h-screen bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] [background-position:0_0,10px_10px] section-spacing">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-10">
-          <p className="font-space-mono text-xs text-muted-foreground tracking-widest mb-2">RWA INVENTORY // POLYGON TOKEN STORAGE</p>
+          <p className="font-space-mono text-xs text-muted-foreground tracking-widest mb-2">TERRITORY INVENTORY // POLYGON STORAGE</p>
           <h2 className="font-lufga">Territory Vault</h2>
         </div>
 

@@ -8,7 +8,12 @@ const generateCoord = () => ({
   ts: Date.now(),
 });
 
-const CoordinateTicker = () => {
+interface CoordinateTickerProps {
+  customLat?: number;
+  customLng?: number;
+}
+
+const CoordinateTicker = ({ customLat, customLng }: CoordinateTickerProps) => {
   const [coords, setCoords] = useState(generateCoord());
   const [connected, setConnected] = useState(true);
 
@@ -30,11 +35,11 @@ const CoordinateTicker = () => {
       <div className="space-y-0.5">
         <div className="flex justify-between">
           <span className="text-muted-foreground">LAT</span>
-          <span className="text-primary tabular-nums font-bold">{coords.lat}°</span>
+          <span className="text-primary tabular-nums font-bold">{customLat !== undefined ? customLat.toFixed(6) : coords.lat}°</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">LNG</span>
-          <span className="text-primary tabular-nums font-bold">{coords.lng}°</span>
+          <span className="text-primary tabular-nums font-bold">{customLng !== undefined ? customLng.toFixed(6) : coords.lng}°</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">ALT</span>

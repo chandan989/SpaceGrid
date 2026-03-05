@@ -115,7 +115,7 @@ body, p, span, button, input {
 
 * Edge-to-edge dark map interface.
 * Live WebSocket coordinate stream in the corner.
-* "Close Loop" action button that triggers the `TerritoryRWA.sol` registration.
+* "Close Loop" action button that triggers the `Territory.sol` registration.
 
 1. **Tactics Market (`/market`)**
 
@@ -153,7 +153,7 @@ body, p, span, button, input {
 * Displays CTC cost clearly.
 * Triggers a smart contract call on `TacticsMarket.sol`.
 
-### 4. Polygon Token Card (`TerritoryRWA`)
+### 4. Polygon Token Card (`Territory`)
 
 * Wireframe rendering of the specific geographic polygon.
 * Hash, area size (calculated via PostGIS), and generation date strictly aligned in `Space Mono`.
@@ -228,7 +228,7 @@ body, p, span, button, input {
 * [x] Crimson (`#FF003C`) exclusively reserved for Interference Warfare events.
 * [x] Instant, linear transitions (no bouncy/soft animations).
 * [x] Data-first layout (always display CTC balances and staking metrics).
-* [x] Wireframe aesthetics for territories (`TerritoryRWA.sol`).
+* [x] Wireframe aesthetics for territories (`Territory.sol`).
 
 ---
 

@@ -242,7 +242,7 @@ const Layout = () => {
             © 2024 Space Grid Protocol. All Rights Reserved.
           </p>
           <p className="text-xs text-muted-foreground font-space-mono text-center">
-            Decentralized Physical Infrastructure and Location-Based RWA Protocol
+            Decentralized Physical Infrastructure and Location-Based Protocol
           </p>
         </div>
       </footer>

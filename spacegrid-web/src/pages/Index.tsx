@@ -141,7 +141,7 @@ const Index = () => {
               },
               {
                 icon: <MapTrifold size={28} weight="duotone" />,
-                title: "Territory Capture (RWA)",
+                title: "Territory Capture",
                 desc: "Returning to your own trail closes a loop. The backend calculates the area using PostGIS and securely registers the geometric polygon on the Creditcoin EVM.",
               },
               {
@@ -206,7 +206,7 @@ const Index = () => {
                 {
                   num: "3",
                   title: "LAYER THREE: Asset Registration",
-                  desc: "The territory is registered via TerritoryRWA.sol as an asset on the Creditcoin EVM, cementing your undeniable claim.",
+                  desc: "The territory is registered via Territory.sol as an asset on the Creditcoin EVM, cementing your undeniable claim.",
                 },
               ].map((step) => (
                 <div key={step.num} className="flex gap-4">
@@ -245,7 +245,7 @@ const Index = () => {
               </thead>
               <tbody>
                 {[
-                  ["Smart Contracts", "Solidity, GridEntry.sol, TerritoryRWA.sol, TacticsMarket.sol"],
+                  ["Smart Contracts", "Solidity, GridEntry.sol, Territory.sol, TacticsMarket.sol"],
                   ["Blockchain", "Creditcoin EVM (Mainnet & Testnet)"],
                   ["Backend Logic", "FastAPI (Python) + WebSocket"],
                   ["Spatial Database", "Supabase + PostgreSQL (PostGIS)"],
@@ -281,7 +281,7 @@ const Index = () => {
 
             <div className="space-y-10">
               {[
-                { phase: "0", title: "EVM Contracts", desc: "Deploying GridEntry, TerritoryRWA, and TacticsMarket to Creditcoin Testnet (tCTC)." },
+                { phase: "0", title: "EVM Contracts", desc: "Deploying GridEntry, Territory, and TacticsMarket to Creditcoin Testnet (tCTC)." },
                 { phase: "1", title: "Spatial Backend", desc: "Configuring FastAPI logic and initializing PostGIS schema for area validation." },
                 { phase: "2", title: "Interface Layer", desc: "Launching the React+Vite frontend for real-time WebSocket communication and operator wallet integration." },
                 { phase: "3", title: "Tactical Markets", desc: "Enabling in-game tactical upgrades like Shields, Stealth, and Disruption pulses via CTC." },
@@ -327,7 +327,7 @@ const Index = () => {
               },
               {
                 title: "Protocol Rewards",
-                items: ["Territory holding dividends", "Aggressive interference bounties", "Loop closure payouts", "On-chain RWA asset appreciation"],
+                items: ["Territory holding dividends", "Aggressive interference bounties", "Loop closure payouts", "On-chain asset appreciation"],
               },
             ].map((col) => (
               <div key={col.title} className="surface-panel rounded-lg p-6 card-hover">
