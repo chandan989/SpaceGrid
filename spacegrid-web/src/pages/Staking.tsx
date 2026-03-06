@@ -45,8 +45,8 @@ const Staking = () => (
       {/* Pools Table */}
       <div className="mb-10">
         <h3 className="font-lufga font-bold mb-4">Entry Pools</h3>
-        <div className="surface-panel rounded-lg overflow-hidden">
-          <table className="w-full">
+        <div className="surface-panel rounded-lg overflow-x-auto">
+          <table className="w-full whitespace-nowrap">
             <thead>
               <tr className="border-b border-border bg-muted/50">
                 {["POOL", "ENTRY FEE", "TOTAL LOCKED", "APY", "RUNNERS", "STATUS", ""].map((h) => (
@@ -84,8 +84,8 @@ const Staking = () => (
       {/* Distributions */}
       <div>
         <h3 className="font-lufga font-bold mb-4">Reward Distributions</h3>
-        <div className="surface-panel rounded-lg overflow-hidden">
-          <table className="w-full">
+        <div className="surface-panel rounded-lg overflow-x-auto">
+          <table className="w-full whitespace-nowrap">
             <thead>
               <tr className="border-b border-border bg-muted/50">
                 {["EPOCH", "REWARD POOL", "RUNNERS", "TIMESTAMP"].map((h) => (

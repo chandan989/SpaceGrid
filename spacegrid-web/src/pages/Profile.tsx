@@ -103,8 +103,8 @@ const Profile = () => {
                             <button className="text-xs font-space-mono text-primary hover:underline">View Full Log</button>
                         </div>
 
-                        <div className="surface-panel rounded-xl overflow-hidden border border-border">
-                            <table className="w-full text-left font-space-mono">
+                        <div className="surface-panel rounded-xl overflow-x-auto border border-border">
+                            <table className="w-full text-left font-space-mono whitespace-nowrap">
                                 <thead className="bg-muted/50 text-xs text-muted-foreground border-b border-border">
                                     <tr>
                                         <th className="p-4 font-normal">ENGAGEMENT ID</th>

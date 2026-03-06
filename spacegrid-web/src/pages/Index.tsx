@@ -235,8 +235,8 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="surface-panel rounded-lg overflow-hidden">
-            <table className="w-full">
+          <div className="surface-panel rounded-lg overflow-x-auto">
+            <table className="w-full whitespace-nowrap">
               <thead>
                 <tr className="border-b border-border bg-muted/50">
                   <th className="text-left font-space-mono text-xs text-muted-foreground tracking-wider px-6 py-4 font-bold">Domain</th>

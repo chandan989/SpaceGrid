@@ -74,7 +74,7 @@ const GridHUD = () => {
     return (gameState?.trails || []).map(t => ({
       id: t.playerId,
       isMe: t.playerId.toLowerCase() === playerId.toLowerCase(),
-      color: t.playerId.toLowerCase() === playerId.toLowerCase() ? '#00F0FF' : '#FF003C', // Cyan for me, Crimson for others
+      color: t.playerId.toLowerCase() === playerId.toLowerCase() ? '#5C27FE' : '#FF003C', // Violet for me, Crimson for others
       path: t.path.coordinates.map(c => [c[1], c[0]] as [number, number]) // [lat, lng]
     }));
   }, [gameState, playerId]);
@@ -83,7 +83,7 @@ const GridHUD = () => {
     return (gameState?.territories || []).map(t => ({
       id: t.playerId,
       isMe: t.playerId.toLowerCase() === playerId.toLowerCase(),
-      color: t.playerId.toLowerCase() === playerId.toLowerCase() ? '#00F0FF' : '#333333',
+      color: t.playerId.toLowerCase() === playerId.toLowerCase() ? '#5C27FE' : '#333333',
       path: t.polygon.coordinates[0].map(c => [c[1], c[0]] as [number, number]),
       area: t.area
     }));
@@ -197,34 +197,36 @@ const GridHUD = () => {
 
   if (!hasJoinedGame) {
     return (
-      <div className="relative min-h-[calc(100vh-64px)] bg-background p-6">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <div className="text-center space-y-2 mb-12">
-            <h1 className="text-3xl font-orbitron font-bold tracking-wider text-stealth">SELECT DEPLOYMENT ZONE</h1>
-            <p className="text-muted-foreground font-space-mono">Choose your operational sector. Higher stakes yield higher rewards.</p>
+      <div className="relative min-h-[calc(100vh-64px)] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] [background-position:0_0,10px_10px] p-6 lg:p-12 flex flex-col items-center justify-center">
+        <div className="max-w-4xl w-full mx-auto space-y-10 mt-[-10vh]">
+          <div className="text-center space-y-4 mb-12">
+            <h1 className="text-4xl md:text-5xl font-lufga font-bold tracking-tighter text-black">
+              Deploy to <span className="text-[#5C27FE]">The Grid</span>
+            </h1>
+            <p className="text-gray-600 font-space-mono max-w-lg mx-auto text-sm md:text-base">
+              Choose your operational sector. Higher stakes yield higher network dividends and tokenized rewards.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {LOBBIES.map((lobby) => (
               <div
                 key={lobby.id}
-                className="surface-panel rounded-xl p-6 border border-white/5 hover:border-primary/30 transition-all duration-300 relative overflow-hidden group"
+                className="surface-panel rounded-lg p-6 card-hover relative flex flex-col h-full bg-white"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
                 <div className="relative z-10 flex flex-col h-full">
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h3 className="text-xl font-orbitron font-bold mb-1">{lobby.name}</h3>
-                      <p className="text-sm text-muted-foreground font-space-mono">{lobby.description}</p>
+                      <h3 className="text-xl font-lufga font-bold mb-2 text-black">{lobby.name}</h3>
+                      <p className="text-sm text-gray-500 font-space-mono">{lobby.description}</p>
                     </div>
                     {lobby.fee > 0 ? (
-                      <div className="flex items-center gap-1.5 px-3 py-1 bg-primary/10 rounded-full border border-primary/20 text-primary font-bold">
+                      <div className="flex items-center gap-1.5 px-3 py-1 bg-[#5C27FE]/10 rounded-full border border-[#5C27FE]/20 text-[#5C27FE] font-bold text-sm">
                         <Coins size={16} weight="duotone" />
                         {lobby.fee} CTC
                       </div>
                     ) : (
-                      <div className="px-3 py-1 bg-white/5 rounded-full border border-white/10 text-muted-foreground text-sm font-bold">
+                      <div className="px-3 py-1 bg-gray-100 rounded-full border border-gray-200 text-gray-500 text-sm font-bold">
                         FREE
                       </div>
                     )}
@@ -234,7 +236,7 @@ const GridHUD = () => {
                     <button
                       onClick={() => handleJoin(lobby.fee, lobby.id)}
                       disabled={(isConfirming || isMining) && selectedLobby === lobby.id}
-                      className="w-full btn-primary glow-violet py-3 rounded-lg font-space-mono tracking-widest text-sm flex justify-center items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-[#5C27FE] text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-[1.02] shadow-[0_0_15px_rgba(92,39,254,0.3)] font-space-mono text-sm tracking-wider flex justify-center items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                     >
                       {(isConfirming || isMining) && selectedLobby === lobby.id ? (
                         <>
@@ -242,7 +244,7 @@ const GridHUD = () => {
                           {isConfirming ? "CONFIRMING..." : "DEPLOYING..."}
                         </>
                       ) : (
-                        <>DEPLOY <Crosshair size={16} weight="duotone" /></>
+                        <>DEPLOY <Crosshair size={16} weight="bold" /></>
                       )}
                     </button>
                   </div>
@@ -256,20 +258,20 @@ const GridHUD = () => {
   }
 
   return (
-    <div className="relative h-[calc(100vh-64px)] bg-background overflow-hidden relative z-0">
+    <div className="relative h-[calc(100vh-64px)] bg-[#f3f4f6] overflow-hidden relative z-0">
 
       {/* Map Layer */}
       <div className="absolute inset-0 z-0">
         <MapContainer
           center={myPos}
           zoom={18}
-          style={{ height: '100%', width: '100%', backgroundColor: '#0A0B0E' }}
+          style={{ height: '100%', width: '100%', backgroundColor: '#f3f4f6' }}
           zoomControl={false}
           attributionControl={false}
           ref={mapRef}
         >
           <TileLayer
-            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             maxZoom={20}
           />
 
@@ -282,7 +284,7 @@ const GridHUD = () => {
               positions={terr.path}
               pathOptions={{
                 color: terr.color,
-                fillColor: terr.isMe ? '#00F0FF' : '#FF003C',
+                fillColor: terr.color,
                 fillOpacity: 0.15,
                 weight: 2,
                 stroke: true
@@ -305,7 +307,7 @@ const GridHUD = () => {
           ))}
 
           {/* My Marker */}
-          <Marker position={myPos} icon={createPulseIcon('#00F0FF', true)} />
+          <Marker position={myPos} icon={createPulseIcon('#5C27FE', true)} />
 
           {/* Other Players */}
           {otherPlayers.map(p => {
@@ -324,41 +326,44 @@ const GridHUD = () => {
       </div>
 
       {/* Top HUD */}
-      <div className="absolute top-4 left-4 z-10 flex items-center gap-3">
-        <div className="surface-panel rounded-lg px-3 py-1.5 flex items-center gap-2 text-xs font-space-mono">
-          <Crosshair size={14} weight="duotone" className="text-primary" />
-          <span className="text-muted-foreground">OPERATOR MODE</span>
+      <div className="absolute top-4 left-4 z-[400] flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3">
+        <div className="bg-white/90 backdrop-blur-md border border-gray-200 shadow-sm rounded-lg px-3 py-2 flex items-center gap-2 text-xs font-space-mono">
+          <Crosshair size={16} weight="duotone" className="text-[#5C27FE]" />
+          <span className="text-gray-600 font-bold">OPERATOR MODE</span>
         </div>
-        <div className="surface-panel rounded-lg px-3 py-1.5 flex items-center gap-2 text-xs font-space-mono">
-          <MapPin size={14} weight="duotone" className="text-primary" />
-          <span className="text-primary font-bold">{myStats.points}</span>
-          <span className="text-muted-foreground">TRAIL POINTS</span>
+        <div className="bg-white/90 backdrop-blur-md border border-gray-200 shadow-sm rounded-lg px-3 py-2 flex items-center gap-2 text-xs font-space-mono">
+          <MapPin size={16} weight="duotone" className="text-[#5C27FE]" />
+          <span className="text-[#5C27FE] font-bold">{myStats.points}</span>
+          <span className="text-gray-500">TRAIL</span>
         </div>
       </div>
 
       {/* Top Right HUD */}
-      <div className="absolute top-4 right-4 z-10">
-        <div className="surface-panel rounded-lg px-4 py-3 text-xs font-space-mono space-y-1.5">
-          <div className="flex justify-between gap-6">
-            <span className="text-muted-foreground">EMISSION</span>
-            <span className={wsConnected ? "text-stealth font-bold" : "text-warfare font-bold"}>
+      <div className="hidden md:block absolute top-4 right-4 z-[400]">
+        <div className="bg-white/90 backdrop-blur-md border border-gray-200 shadow-sm rounded-lg px-4 py-3 text-xs font-space-mono space-y-2 min-w-[180px]">
+          <div className="flex justify-between gap-6 items-center">
+            <span className="text-gray-500">EMISSION</span>
+            <span className={wsConnected ? "text-[#10b981] font-bold flex items-center gap-1.5" : "text-red-500 font-bold flex items-center gap-1.5"}>
+              <div className={`w-2 h-2 rounded-full ${wsConnected ? 'bg-[#10b981] animate-pulse' : 'bg-red-500'}`} />
               {wsConnected ? "ACTIVE" : "OFFLINE"}
             </span>
           </div>
           <div className="flex justify-between gap-6">
-            <span className="text-muted-foreground">LOOP STATUS</span>
-            <span className="text-primary font-bold">TRACING</span>
+            <span className="text-gray-500">STATUS</span>
+            <span className="text-[#5C27FE] font-bold">TRACING</span>
           </div>
           <div className="flex justify-between gap-6">
-            <span className="text-muted-foreground">EST. AREA</span>
-            <span className="font-bold">{myStats.area.toFixed(2)} m&sup2;</span>
+            <span className="text-gray-500">AREA</span>
+            <span className="font-bold text-gray-800">{myStats.area.toFixed(2)} m&sup2;</span>
           </div>
         </div>
       </div>
 
       {/* Bottom Left: Live Coordinates */}
-      <div className="absolute bottom-4 left-4 z-10">
-        <CoordinateTicker customLat={myPos[0]} customLng={myPos[1]} />
+      <div className="absolute bottom-20 md:bottom-6 left-1/2 md:left-4 -translate-x-1/2 md:translate-x-0 z-[400] w-[calc(100%-2rem)] md:w-auto flex justify-center md:justify-start">
+        <div className="bg-white/90 backdrop-blur-md border border-gray-200 shadow-sm rounded-lg overflow-hidden">
+          <CoordinateTicker customLat={myPos[0]} customLng={myPos[1]} />
+        </div>
       </div>
 
       {/* Bottom Center: Register Territory CTA */}
@@ -366,28 +371,28 @@ const GridHUD = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[400]"
       >
-        <button className="btn-primary glow-violet px-10 py-4 text-sm tracking-wider flex items-center gap-3">
-          <Lightning size={16} weight="duotone" />
-          CLOSE LOOP — REGISTER TERRITORY
+        <button className="bg-[#5C27FE] text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-[0_4px_20px_rgba(92,39,254,0.4)] font-space-mono text-sm tracking-wider flex items-center gap-2">
+          <Lightning size={18} weight="fill" className="animate-pulse" />
+          REGISTER TERRITORY
         </button>
       </motion.div>
 
       {/* Bottom Right HUD */}
-      <div className="absolute bottom-4 right-4 z-10">
-        <div className="surface-panel rounded-lg px-4 py-3 text-xs font-space-mono space-y-1.5">
+      <div className="hidden md:block absolute bottom-6 right-4 z-[400]">
+        <div className="bg-white/90 backdrop-blur-md border border-gray-200 shadow-sm rounded-lg px-4 py-3 text-xs font-space-mono space-y-2 min-w-[180px]">
           <div className="flex justify-between gap-6">
-            <span className="text-muted-foreground">NEARBY RUNNERS</span>
-            <span className="font-bold">{otherPlayers.length}</span>
+            <span className="text-gray-500">RUNNERS</span>
+            <span className="font-bold text-gray-800">{otherPlayers.length}</span>
+          </div>
+          <div className="flex justify-between gap-6 items-center">
+            <span className="text-gray-500">INTERFERENCE</span>
+            <span className="text-[#10b981] font-bold">CLEAR</span>
           </div>
           <div className="flex justify-between gap-6">
-            <span className="text-muted-foreground">INTERFERENCE</span>
-            <span className="text-stealth font-bold">CLEAR</span>
-          </div>
-          <div className="flex justify-between gap-6">
-            <span className="text-muted-foreground">BLOCK</span>
-            <span className="text-muted-foreground">#4,891,203</span>
+            <span className="text-gray-500">BLOCK</span>
+            <span className="text-gray-400">#4,891,203</span>
           </div>
         </div>
       </div>
